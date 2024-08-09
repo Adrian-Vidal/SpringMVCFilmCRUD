@@ -1,12 +1,17 @@
 package com.skilldistillery.film.controllers;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-@Controller
+
+import com.skilldistillery.film.dao.FilmDAO;
+
 public class FilmController {
+	
+	@Autowired
+	private FilmDAO filmDao;
 	
 	@RequestMapping(path= {"index.do", "/"})
 	public String index() {
-		return "WEB-INF/index.jsp";
+		return "index";
 	}
 }
