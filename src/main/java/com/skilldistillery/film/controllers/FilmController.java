@@ -16,6 +16,4 @@ public class FilmController {
 		return "WEB-INF/index.jsp";
 	}
 
-
-	
 }
