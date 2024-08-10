@@ -11,6 +11,7 @@
 		<c:when test="${! empty film}">
 			<ul>
 				<li><strong>Title: </strong> ${film.title}</li>
+				<li><strong>Film ID: </strong> ${film.id}</li>
 				<li><strong>Description: </strong> ${film.description}</li>
 				<li><strong>Release Year: </strong> ${film.realeaseYear}</li>
 				<li><strong>Language ID: </strong> ${film.languageId}</li>
@@ -28,6 +29,11 @@
 				<p>No film details available. Please check to see if film ID is correct and try again.</p>
 			</c:otherwise>
 			</c:choose>
+			
+			<form action="DeleteFilm.do" method="POST">
+    			<input type="hidden" name="filmId" value="${film.id}" />
+    				<button type="submit">Delete Film</button>
+			</form>
 			
 			<a href="index.jsp">Back to Home</a>
 

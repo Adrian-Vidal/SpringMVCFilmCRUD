@@ -9,15 +9,14 @@
 </head>
 <body>
 
-	<h1>Welcome to the Film Site</h1>
+	<h1>Welcome To The Film Site</h1>
 
 	<!--  TODO form with filmId field and button, action="getFilm.do" -->
-	<!--  TODO create two jsp files for displaying single film and list of films-->
 
 	<h2>Film Details</h2>
 	<form action="GetFilmById.do" method="GET">
 		<label for="filmId">Enter film ID:</label> 
-		<input type="text" id="filmId" name="filmId" required>
+		<input type="text" id="filmId" name="filmId">
 		<button type="submit">Get film details</button>
 	</form>
 		<br>
@@ -27,7 +26,7 @@
 	<h2>Add Film</h2>
 	<form action="AddFilm.do" method="POST">
         <label for="filmTitle">Title:</label>
-        <input type="text" id="filmTitle" name="title" required>
+        <input type="text" id="filmTitle" name="title">
        		<br>
         	<br>
         <!-- <label for="filmDescription">Description:</label>
@@ -39,7 +38,7 @@
 	        <br>
 	        <br> -->
         <label for="filmLanguageId">Language ID:</label>
-        <input type="text" id="filmLanguageId" name="languageId" required>
+        <input type="text" id="filmLanguageId" name="languageId">
 	        <br>
 	        <br>
         <!-- <label for="filmLanguage">Language:</label>
@@ -75,6 +74,15 @@
 	        <br>
 	        <br> -->
         <button type="submit">Add film</button>
+        	<br>
+        	<br>
+        	<br>
+        	<br>
+        <h2>Search For Film Using Keyword In Title</h2>
+			<form action="GetFilmByKeyword.do" method="GET">
+        		<label for="filmTitle">Keyword in title:</label>
+        		<input type="text" id="filmTitle" name="title">
+        		<button type="submit">Search</button>
 	</form>
 </body>
 </html>
