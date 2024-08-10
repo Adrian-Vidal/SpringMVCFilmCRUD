@@ -168,7 +168,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 	}
 
 	@Override
-	public void addNewFilm(Film newFilm) {
+	public Film addNewFilm(Film newFilm) {
 		Film addFilm = newFilm;
 		String sql = "INSERT INTO film (title, language_id)" + " VALUES (?, ?)";
 		Connection conn = null;
@@ -195,6 +195,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return addFilm;
 
 	}
 
