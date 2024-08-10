@@ -12,9 +12,10 @@
 	<h1>Welcome to the Film Site</h1>
 
 	<!--  TODO form with filmId field and button, action="getFilm.do" -->
+	<!--  TODO create two jsp files for displaying single film and list of films-->
 
 	<h2>Film Details</h2>
-	<form action="GetFilm.do" method="GET">
+	<form action="GetFilmById.do" method="GET">
 		<label for="filmId">Enter film ID:</label> 
 		<input type="text" id="filmId" name="filmId" required>
 		<button type="submit">Get film details</button>
@@ -29,19 +30,23 @@
         <input type="text" id="filmTitle" name="title" required>
        		<br>
         	<br>
-        <label for="filmDescription">Description:</label>
+        <!-- <label for="filmDescription">Description:</label>
         <input type="text" id="filmDescription" name="description" required>
 	        <br>
 	        <br>
         <label for="filmReleaseYear">Release Year:</label>
         <input type="text" id="filmReleaseYear" name="releaseYear" required>
 	        <br>
+	        <br> -->
+        <label for="filmLanguageId">Language ID:</label>
+        <input type="text" id="filmLanguageId" name="languageId" required>
 	        <br>
-        <label for="filmLanguage">Language:</label>
+	        <br>
+        <!-- <label for="filmLanguage">Language:</label>
         <input type="text" id="filmLanguage" name="language" required>
 	        <br>
-	        <br>
-        <label for="filmRentalDuration">Rental Duration:</label>
+	        <br> -->
+        <!-- <label for="filmRentalDuration">Rental Duration:</label>
         <input type="text" id="filmRentalDuration" name="rentalDuration" required>
 	        <br>
 	        <br>
@@ -68,7 +73,7 @@
         <label for="filmActors">Actors:</label>
         <input type="text" id="filmActors" name="actors" required>
 	        <br>
-	        <br>
+	        <br> -->
         <button type="submit">Add film</button>
 	</form>
 </body>
