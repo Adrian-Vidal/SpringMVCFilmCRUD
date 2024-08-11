@@ -80,8 +80,8 @@
         	<br>
         <h2>Search For Film Using Keyword In Title</h2>
 			<form action="GetFilmByKeyword.do" method="GET">
-        		<label for="filmTitle">Keyword in title:</label>
-        		<input type="text" id="filmTitle" name="title">
+        		<label for="keyword">Keyword in title:</label>
+        		<input type="text" id="keyword" name="keyword">
         		<button type="submit">Search</button>
 	</form>
 </body>
