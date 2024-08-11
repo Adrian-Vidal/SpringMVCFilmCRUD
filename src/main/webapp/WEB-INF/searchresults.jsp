@@ -12,6 +12,20 @@
 
 <c:choose>
     <c:when test="${not empty films}">
+     <style>
+     	table {
+     		width: 100%;
+     		border-collapse: collapse;
+     		}
+     	th, td {
+     		border: 1px solid;
+     		text-align: center;
+     		vertical-align: top;
+     		}
+     	th, td {
+     		width: auto;
+     		}
+     </style>
         <table>
         <tbody>
             <c:forEach var="film" items="${films}">
