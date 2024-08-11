@@ -15,21 +15,19 @@
 
 	<h2>Film Details</h2>
 	<form action="GetFilmById.do" method="GET">
-		<label for="filmId">Enter film ID:</label> 
-		<input type="text" id="filmId" name="filmId">
+		<label for="filmId">Enter film ID:</label> <input type="text"
+			id="filmId" name="filmId">
 		<button type="submit">Get film details</button>
 	</form>
-		<br>
-		<br>
-		<br>
-		<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<h2>Add Film</h2>
 	<form action="AddFilm.do" method="POST">
-        <label for="filmTitle">Title:</label>
-        <input type="text" id="filmTitle" name="title">
-       		<br>
-        	<br>
-        <!-- <label for="filmDescription">Description:</label>
+		<label for="filmTitle">Title:</label> <input type="text"
+			id="filmTitle" name="title"> <br> <br>
+		<!-- <label for="filmDescription">Description:</label>
         <input type="text" id="filmDescription" name="description" required>
 	        <br>
 	        <br>
@@ -37,15 +35,13 @@
         <input type="text" id="filmReleaseYear" name="releaseYear" required>
 	        <br>
 	        <br> -->
-        <label for="filmLanguageId">Language ID:</label>
-        <input type="text" id="filmLanguageId" name="languageId">
-	        <br>
-	        <br>
-        <!-- <label for="filmLanguage">Language:</label>
+		<label for="filmLanguageId">Language ID:</label> <input type="text"
+			id="filmLanguageId" name="languageId"> <br> <br>
+		<!-- <label for="filmLanguage">Language:</label>
         <input type="text" id="filmLanguage" name="language" required>
 	        <br>
 	        <br> -->
-        <!-- <label for="filmRentalDuration">Rental Duration:</label>
+		<!-- <label for="filmRentalDuration">Rental Duration:</label>
         <input type="text" id="filmRentalDuration" name="rentalDuration" required>
 	        <br>
 	        <br>
@@ -73,16 +69,17 @@
         <input type="text" id="filmActors" name="actors" required>
 	        <br>
 	        <br> -->
-        <button type="submit">Add film</button>
-        	<br>
-        	<br>
-        	<br>
-        	<br>
-        <h2>Search For Film Using Keyword In Title</h2>
-			<form action="GetFilmByKeyword.do" method="GET">
-        		<label for="keyword">Keyword in title:</label>
-        		<input type="text" id="keyword" name="keyword">
-        		<button type="submit">Search</button>
+		<button type="submit">Add film</button>
+	</form>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h2>Search For Film Using Keyword In Title</h2>
+	<form action="GetFilmByKeyword.do" method="GET">
+		<label for="keyword">Keyword in title:</label> <input type="text"
+			id="keyword" name="keyword">
+		<button type="submit">Search</button>
 	</form>
 </body>
 </html>

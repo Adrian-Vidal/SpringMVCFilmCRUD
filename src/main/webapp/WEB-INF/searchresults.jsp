@@ -17,6 +17,7 @@
             <c:forEach var="film" items="${films}">
        			<tr>
        				<td><strong>Film ID:</strong> ${film.id}</td>
+       				<td><strong>Title:</strong> ${film.title}</td>
        				<td><strong>Description:</strong> ${film.description}</td>
        				<td><strong>Release Year:</strong> ${film.releaseYear}</td>
        				<td><strong>Language ID:</strong> ${film.languageId}</td>
