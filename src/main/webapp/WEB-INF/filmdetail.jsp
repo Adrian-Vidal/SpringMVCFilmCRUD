@@ -35,7 +35,14 @@
     			<input type="hidden" name="filmId" value="${film.id}" />
     				<button type="submit">Delete Film</button>
 			</form>
-			
+			<br>
+			<br>
+			<form action="UpdateFilm.do" method="POST">
+    			<input type="hidden" name="filmId" value="${film.id}" />
+    				<button type="submit">Edit Film</button>
+			</form>
+			<br>
+			<br>
 			<a href="index.do">Back to Home</a>
 
 </body>
