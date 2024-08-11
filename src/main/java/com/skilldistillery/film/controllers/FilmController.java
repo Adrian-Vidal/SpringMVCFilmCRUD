@@ -38,8 +38,6 @@ public class FilmController {
 
 			mv.addObject("film", film);
 			mv.addObject("actors", actors);
-
-			// *********Need to create filmDetails.jsp to display the result
 			mv.setViewName("WEB-INF/filmdetail.jsp");
 		}
 		return mv;
@@ -51,7 +49,6 @@ public class FilmController {
 
 		ModelAndView mv = new ModelAndView();
 
-
 		try {
 			Film newFilm = filmDao.addNewFilm(film);
 			mv.addObject("film", newFilm);
@@ -60,7 +57,7 @@ public class FilmController {
 			mv.addObject("message", "Failed to add the film");
 			mv.setViewName("WEB-INF/error.jsp");
 		}
-		
+
 		return mv;
 
 	}
@@ -90,50 +87,40 @@ public class FilmController {
 		return mv;
 
 	}
-	
-	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
-//	public ModelAndView editFilm(@RequestParam(name = "filmId") int filmId) {
-		public ModelAndView editFilm(int filmId) {
-	    ModelAndView mv = new ModelAndView();
-	    Film film = filmDao.findFilmById(filmId);
-	    if (film == null) {
-	        mv.addObject("message", "Film not found with ID: " + filmId);
-	        mv.setViewName("WEB-INF/error.jsp");
-	    } else {
-	        mv.addObject("film", film);
-	        mv.setViewName("WEB-INF/editFilm.jsp");
-	    }
-	    return mv;
-	}
 
-	
 	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
-	public ModelAndView updateFilm(Film film) {
+	public ModelAndView updateFilm(@ModelAttribute("film") Film film) {
 		ModelAndView mv = new ModelAndView();
-		Film updatedFilm = filmDao.findFilmById(film.getId());
-		if (updatedFilm == null) {
-			mv.addObject("message", "Film not found with ID: " + film.getId());
-			mv.setViewName("WEB-INF/error.jsp");
-		} else {
-			updatedFilm.setTitle(film.getTitle());
-			updatedFilm.setDescription(film.getDescription());
-			updatedFilm.setReleaseYear(film.getReleaseYear());
-			updatedFilm.setLanguageId(film.getLanguageId());
-			updatedFilm.setRentalDuration(film.getRentalDuration());
-			updatedFilm.setRentalRate(film.getRentalRate());
-			updatedFilm.setLength(film.getLength());
-			updatedFilm.setReplacementCost(film.getReplacementCost());
-			updatedFilm.setRating(film.getRating());
-			updatedFilm.setSpecialFeatures(film.getSpecialFeatures());
 
-			try {
-				filmDao.addNewFilm(updatedFilm);
+		try {
+			Film updatedFilm = filmDao.updateFilm(film);
+			if (updatedFilm != null) {
 				mv.addObject("film", updatedFilm);
 				mv.setViewName("WEB-INF/filmdetail.jsp");
-			} catch (Exception e) {
+			} else {
 				mv.addObject("message", "Failed to update the film.");
 				mv.setViewName("WEB-INF/error.jsp");
 			}
+		} catch (Exception e) {
+			mv.addObject("message", "Error occurred while updating the film.");
+			mv.setViewName("WEB-INF/error.jsp");
+			e.printStackTrace();
+		}
+
+		return mv;
+	}
+
+	@RequestMapping(path = "updateFilmForm.do", method = RequestMethod.GET)
+	public ModelAndView showUpdateFilmForm(@RequestParam("filmId") int id) {
+		ModelAndView mv = new ModelAndView();
+		Film film = filmDao.findFilmById(id);
+		if (film != null) {
+			System.out.println("Updating film: " + film);
+			mv.addObject("film", film);
+			mv.setViewName("WEB-INF/updatefilm.jsp");
+		} else {
+			mv.addObject("message", "Film not found");
+			mv.setViewName("WEB-INF/error.jsp");
 		}
 		return mv;
 	}
@@ -147,15 +134,11 @@ public class FilmController {
 			mv.setViewName("WEB-INF/error.jsp");
 		} else {
 			mv.addObject("films", films);
-
-			// *********Need to create filmLists.jsp to display the result
 			mv.setViewName("WEB-INF/searchresults.jsp");
 		}
 
 		return mv;
 
 	}
-	
-
 
 }

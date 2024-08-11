@@ -70,10 +70,6 @@
 		<input type="text" id="filmSpecialFeatures" name="specialFeatures">
 		<br> 
 		<br> 
-		<!-- <label for="filmActors">Actors:</label> 
-		<input type="text" id="filmActors" name="actors"> 
-			<br> 
-			<br> -->
 
 		<button type="submit">Add film</button>
 	</form>
@@ -86,6 +82,10 @@
 		<label for="keyword">Keyword in title or description:</label> <input
 			type="text" id="keyword" name="keyword">
 		<button type="submit">Search</button>
+		<br>
+	<br>
+	<br>
+	<br>
 	</form>
 </body>
 </html>

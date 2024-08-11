@@ -28,7 +28,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public Film findFilmById(int filmId) {
 		Film film = null;
@@ -225,21 +225,21 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			int updateCount = st.executeUpdate();
 			conn.commit();
 			ResultSet keys = st.getGeneratedKeys();
-			
+
 			if (keys.next()) {
 				newFilm.setId(keys.getInt(1));
 				System.out.println("New film ID: " + keys.getInt(1));
-				
+
 			} else {
 				System.out.println("Something went wrong");
 				conn.rollback();
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return addFilm;
-		
+
 	}
 
 	@Override
@@ -261,7 +261,7 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		return false;
 
 	}
-	
+
 	@Override
 	public Film updateFilm(Film updateFilm) {
 		String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?, rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=? WHERE id=?";
@@ -281,9 +281,13 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			st.setString(10, updateFilm.getSpecialFeatures());
 			st.setInt(11, updateFilm.getId());
 
+			System.out.println("Executing SQL: " + st.toString());
+
 			int rowsAffected = st.executeUpdate();
 			if (rowsAffected == 1) {
 				return findFilmById(updateFilm.getId());
+			} else {
+				System.out.println("Update failed, no rows affected.");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -299,6 +303,4 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		return null;
 	}
 
-		
-	
 }
