@@ -42,23 +42,23 @@
 			<br> 
 			<br>
 		<label for="filmLanguage">Language:</label> 
-		<input type="text" id="filmLanguage" name="language"> 
+		<input type="text" id="filmLanguage" name="language" value="English"> 
 			<br> 
 			<br> 
-	<!-- 	<label for="filmRentalDuration">Rental Duration:</label> 
-		<input type="number" id="filmRentalDuration" name="rentalDuration"> 
+		<label for="filmRentalDuration">Rental Duration:</label> 
+		<input type="number" id="filmRentalDuration" name="rentalDuration" value=0> 
 			<br> 
 			<br>
 		<label for="filmRentalRate">Rental Rate:</label> 
-		<input type="number" id="filmRentalRate" name="rentalRate"> 
+		<input type="number" id="filmRentalRate" name="rentalRate" value=0> 
 			<br> 
 			<br>
 		<label for="filmLength">Film Length (in minutes):</label> 
-		<input type="number" id="filmLength" name="length"> 
+		<input type="number" id="filmLength" name="length" min="0"> 
 			<br> 
 			<br> 
 		<label for="filmReplacementCost">Replacement Cost:</label> 
-		<input type="number" id="filmReplacementCost" name="replacementCost">
+		<input type="number" id="filmReplacementCost" name="replacementCost" value=0>
 			
 		<br> 
 		<br> 
@@ -69,8 +69,8 @@
 		<label for="filmSpecialFeatures">Special Features:</label> 
 		<input type="text" id="filmSpecialFeatures" name="specialFeatures">
 		<br> 
-		<br>  -->
-	<!-- 	<label for="filmActors">Actors:</label> 
+		<br> 
+		<!-- <label for="filmActors">Actors:</label> 
 		<input type="text" id="filmActors" name="actors"> 
 			<br> 
 			<br> -->

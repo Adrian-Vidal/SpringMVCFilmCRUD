@@ -51,6 +51,7 @@ public class FilmController {
 
 		ModelAndView mv = new ModelAndView();
 
+
 		try {
 			Film newFilm = filmDao.addNewFilm(film);
 			mv.addObject("film", newFilm);
@@ -154,5 +155,7 @@ public class FilmController {
 		return mv;
 
 	}
+	
+
 
 }
