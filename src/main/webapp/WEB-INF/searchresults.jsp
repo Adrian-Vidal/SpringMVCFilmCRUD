@@ -37,7 +37,7 @@
     </c:otherwise>
 </c:choose>
 
-<a href="index.jsp">Back to Home</a>
+<a href="index.do">Back to Home</a>
 
 </body>
 </html>

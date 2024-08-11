@@ -147,7 +147,7 @@ public class FilmController {
 			mv.addObject("films", films);
 
 			// *********Need to create filmLists.jsp to display the result
-			mv.setViewName("WEB-INF/filmList.jsp");
+			mv.setViewName("WEB-INF/searchresults.jsp");
 		}
 
 		return mv;

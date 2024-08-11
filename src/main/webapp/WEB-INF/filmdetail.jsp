@@ -36,7 +36,7 @@
     				<button type="submit">Delete Film</button>
 			</form>
 			
-			<a href="index.jsp">Back to Home</a>
+			<a href="index.do">Back to Home</a>
 
 </body>
 </html>
