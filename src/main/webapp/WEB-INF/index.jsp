@@ -25,50 +25,56 @@
 	<br>
 	<h2>Add Film</h2>
 	<form action="AddFilm.do" method="POST">
-		<label for="filmTitle">Title:</label> <input type="text"
-			id="filmTitle" name="title"> <br> <br>
-		<!-- <label for="filmDescription">Description:</label>
-        <input type="text" id="filmDescription" name="description" required>
-	        <br>
-	        <br>
-        <label for="filmReleaseYear">Release Year:</label>
-        <input type="text" id="filmReleaseYear" name="releaseYear" required>
-	        <br>
-	        <br> -->
-		<label for="filmLanguageId">Language ID:</label> <input type="text"
-			id="filmLanguageId" name="languageId"> <br> <br>
-		<!-- <label for="filmLanguage">Language:</label>
-        <input type="text" id="filmLanguage" name="language" required>
-	        <br>
-	        <br> -->
-		<!-- <label for="filmRentalDuration">Rental Duration:</label>
-        <input type="text" id="filmRentalDuration" name="rentalDuration" required>
-	        <br>
-	        <br>
-        <label for="filmRentalRate">Rental Rate:</label>
-        <input type="text" id="filmRentalRate" name="rentalRate" required>
-	        <br>
-	        <br>
-        <label for="filmLength">Film Length:</label>
-        <input type="text" id="filmLength" name="length" required>
-	        <br>
-	        <br>
-        <label for="filmReplacementCost">Replacement Cost:</label>
-        <input type="text" id="filmReplacementCost" name="replacementCost" required>
-	        <br>
-	        <br>
-        <label for="filmRating">Film Rating:</label>
-        <input type="text" id="filmRating" name="rating" required>
-	        <br>
-	        <br>
-        <label for="filmSpecialFeatures">Special Features:</label>
-        <input type="text" id="filmSpecialFeatures" name="specialFeatures" required>
-	        <br>
-	        <br>
-        <label for="filmActors">Actors:</label>
-        <input type="text" id="filmActors" name="actors" required>
-	        <br>
-	        <br> -->
+		<label for="filmTitle">Title: (required)</label> 
+		<input type="text" id="filmTitle" name="title" required>
+			<br> 
+			<br> 
+		<label for="filmDescription">Description:</label> 
+		<input type="text" id="filmDescription" name="description"> 
+			<br> 
+			<br>
+		<label for="filmReleaseYear">Release Year:</label> 
+		<input type="number" id="filmReleaseYear" name="releaseYear"> 
+			<br> 
+			<br>
+		<label for="filmLanguageId">Language ID:</label> 
+		<input type="number" id="filmLanguageId" name="languageId" value=1> 
+			<br> 
+			<br>
+		<label for="filmLanguage">Language:</label> 
+		<input type="text" id="filmLanguage" name="language" value="English"> 
+			<br> 
+			<br> 
+		<label for="filmRentalDuration">Rental Duration:</label> 
+		<input type="number" id="filmRentalDuration" name="rentalDuration" value=0> 
+			<br> 
+			<br>
+		<label for="filmRentalRate">Rental Rate:</label> 
+		<input type="number" id="filmRentalRate" name="rentalRate" value=0> 
+			<br> 
+			<br>
+		<label for="filmLength">Film Length (in minutes):</label> 
+		<input type="number" id="filmLength" name="length" min="0"> 
+			<br> 
+			<br> 
+		<label for="filmReplacementCost">Replacement Cost:</label> 
+		<input type="number" id="filmReplacementCost" name="replacementCost" value=0>
+			
+		<br> 
+		<br> 
+		<label for="filmRating">Film Rating:</label> 
+		<input type="text" id="filmRating" name="rating"> 
+			<br> 
+			<br>
+		<label for="filmSpecialFeatures">Special Features:</label> 
+		<input type="text" id="filmSpecialFeatures" name="specialFeatures">
+		<br> 
+		<br> 
+		<!-- <label for="filmActors">Actors:</label> 
+		<input type="text" id="filmActors" name="actors"> 
+			<br> 
+			<br> -->
+
 		<button type="submit">Add film</button>
 	</form>
 	<br>
@@ -77,8 +83,8 @@
 	<br>
 	<h2>Search For Film Using Keyword In Title</h2>
 	<form action="GetFilmByKeyword.do" method="GET">
-		<label for="keyword">Keyword in title:</label> <input type="text"
-			id="keyword" name="keyword">
+		<label for="keyword">Keyword in title or description:</label> <input
+			type="text" id="keyword" name="keyword">
 		<button type="submit">Search</button>
 	</form>
 </body>

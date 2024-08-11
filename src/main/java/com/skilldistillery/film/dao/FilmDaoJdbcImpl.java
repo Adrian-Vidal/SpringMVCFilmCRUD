@@ -176,6 +176,41 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 		return actors;
 	}
 
+//	@Override
+//	public Film addNewFilm(Film newFilm) {
+//		Film addFilm = newFilm;
+//		String sql = "INSERT INTO film (title, language_id, rental_duration, rental_rate, length, replacement_cost) VALUES (?, ?, ?, ?, ?, ?)";
+//		Connection conn = null;
+//		try {
+//			conn = DriverManager.getConnection(URL, user, pass);
+//			conn.setAutoCommit(false);
+//			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//			 st.setString(1, newFilm.getTitle());
+//	            st.setInt(2, newFilm.getLanguageId());
+//	            st.setInt(3, newFilm.getRentalDuration()); // Ensure no null values
+//	            st.setDouble(4, newFilm.getRentalRate()); // Ensure no null values
+//	            st.setInt(5, newFilm.getLength());
+//	            st.setDouble(6, newFilm.getReplacementCost());
+//	            
+//			int updateCount = st.executeUpdate();
+//			conn.commit();
+//			ResultSet keys = st.getGeneratedKeys();
+//
+//			if (keys.next()) {
+//				newFilm.setId(keys.getInt(1));
+//				System.out.println("New film ID: " + keys.getInt(1));
+//
+//			} else {
+//				System.out.println("Something went wrong");
+//				conn.rollback();
+//			}
+//
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return addFilm;
+//
+//	}
 	@Override
 	public Film addNewFilm(Film newFilm) {
 		Film addFilm = newFilm;
@@ -190,22 +225,21 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 			int updateCount = st.executeUpdate();
 			conn.commit();
 			ResultSet keys = st.getGeneratedKeys();
-
+			
 			if (keys.next()) {
 				newFilm.setId(keys.getInt(1));
-//					updateCount = stmt.executeUpdate();
 				System.out.println("New film ID: " + keys.getInt(1));
-
+				
 			} else {
 				System.out.println("Something went wrong");
 				conn.rollback();
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return addFilm;
-
+		
 	}
 
 	@Override
