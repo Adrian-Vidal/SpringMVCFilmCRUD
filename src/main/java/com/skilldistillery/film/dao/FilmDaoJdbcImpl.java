@@ -193,7 +193,6 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 			if (keys.next()) {
 				newFilm.setId(keys.getInt(1));
-//					updateCount = stmt.executeUpdate();
 				System.out.println("New film ID: " + keys.getInt(1));
 
 			} else {
