@@ -66,7 +66,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.POST)
-	public ModelAndView deleteFilm(int filmId) {
+	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) {
 
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(filmId);
