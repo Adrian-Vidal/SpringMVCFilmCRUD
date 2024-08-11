@@ -31,7 +31,7 @@ public class FilmController {
 		Film film = filmDao.findFilmById(filmId);
 
 		if (film == null) {
-			mv.addObject("message", "Film mot found with ID: " + filmId);
+			mv.addObject("message", "Film not found with ID: " + filmId);
 			mv.setViewName("WEB-INF/error.jsp");
 		} else {
 			List<Actor> actors = filmDao.findActorsByFilmId(filmId);
