@@ -9,10 +9,9 @@
 </head>
 <body>
 
-
 <c:choose>
     <c:when test="${not empty film}">
-        <form action="UpdateFilm.do" method="POST">
+        <form action="updateFilm.do" method="POST">
             <input type="hidden" name="filmId" value="${film.id}" />
 
             <label for="filmTitle">Title:</label>
