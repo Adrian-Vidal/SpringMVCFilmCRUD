@@ -20,6 +20,15 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 	private static final String user = "student";
 	private static final String pass = "student";
 
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("Unable to load MySQL driver");
+			e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public Film findFilmById(int filmId) {
 		Film film = null;
@@ -219,8 +228,42 @@ public class FilmDaoJdbcImpl implements FilmDAO {
 
 	}
 	
-	public boolean updateFilm(Film updateFilm) {
-		return false;
-		
+	public Film updateFilm(Film updateFilm) {
+		String sql = "UPDATE film SET title=?, description=?, release_year=?, language_id=?, rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=? WHERE id=?";
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement st = conn.prepareStatement(sql);
+			st.setString(1, updateFilm.getTitle());
+			st.setString(2, updateFilm.getDescription());
+			st.setInt(3, updateFilm.getReleaseYear());
+			st.setInt(4, updateFilm.getLanguageId());
+			st.setInt(5, updateFilm.getRentalDuration());
+			st.setDouble(6, updateFilm.getRentalRate());
+			st.setInt(7, updateFilm.getLength());
+			st.setDouble(8, updateFilm.getReplacementCost());
+			st.setString(9, updateFilm.getRating());
+			st.setString(10, updateFilm.getSpecialFeatures());
+			st.setInt(11, updateFilm.getId());
+
+			int rowsAffected = st.executeUpdate();
+			if (rowsAffected == 1) {
+				return findFilmById(updateFilm.getId());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return null;
 	}
+
+		
+	
 }
