@@ -37,3 +37,7 @@ dependencies {
     testImplementation group: 'org.junit.platform', name: 'junit-platform-launcher', version:"$junit5PlatformLauncherVersion"
     testImplementation("org.junit.jupiter:junit-jupiter:$junit5Version")
 }
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs << '-parameters'
+}

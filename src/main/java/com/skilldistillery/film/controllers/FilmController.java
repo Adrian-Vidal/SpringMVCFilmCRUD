@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.dao.FilmDAO;
@@ -24,7 +25,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "GetFilmById.do", params = "filmId", method = RequestMethod.GET)
-	public ModelAndView getFilmById(int filmId) {
+	public ModelAndView getFilmById(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(filmId);
 
@@ -38,7 +39,7 @@ public class FilmController {
 			mv.addObject("actors", actors);
 
 			// *********Need to create filmDetails.jsp to display the result
-			mv.setViewName("WEB-INF/filmDetails.jsp");
+			mv.setViewName("WEB-INF/filmdetail.jsp");
 		}
 		return mv;
 
@@ -50,17 +51,14 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 
 		try {
-			filmDao.addNewFilm(film);
-			mv.addObject("film", film);
+			Film newFilm = filmDao.addNewFilm(film);
+			mv.addObject("film", newFilm);
+			mv.setViewName("WEB-INF/filmdetail.jsp");
 		} catch (Exception e) {
 			mv.addObject("message", "Failed to add the film");
 			mv.setViewName("WEB-INF/error.jsp");
 		}
-		Film newFilm = filmDao.addNewFilm(film);
-		mv.addObject("film", newFilm);
-
-		// *********Need to create filmDetails.jsp to display the result
-		mv.setViewName("WEB-INF/filmDetails.jsp");
+		
 		return mv;
 
 	}
@@ -91,6 +89,22 @@ public class FilmController {
 
 	}
 	
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
+//	public ModelAndView editFilm(@RequestParam(name = "filmId") int filmId) {
+		public ModelAndView editFilm(int filmId) {
+	    ModelAndView mv = new ModelAndView();
+	    Film film = filmDao.findFilmById(filmId);
+	    if (film == null) {
+	        mv.addObject("message", "Film not found with ID: " + filmId);
+	        mv.setViewName("WEB-INF/error.jsp");
+	    } else {
+	        mv.addObject("film", film);
+	        mv.setViewName("WEB-INF/editFilm.jsp");
+	    }
+	    return mv;
+	}
+
+	
 	@RequestMapping(path = "updateFilm.do", method = RequestMethod.POST)
 	public ModelAndView updateFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
@@ -113,7 +127,7 @@ public class FilmController {
 			try {
 				filmDao.addNewFilm(updatedFilm);
 				mv.addObject("film", updatedFilm);
-				mv.setViewName("WEB-INF/filmDetail.jsp");
+				mv.setViewName("WEB-INF/filmdetail.jsp");
 			} catch (Exception e) {
 				mv.addObject("message", "Failed to update the film.");
 				mv.setViewName("WEB-INF/error.jsp");
@@ -122,18 +136,18 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "GetFilmByKeyword.do", params = "filmId", method = RequestMethod.GET)
-	public ModelAndView getFilmByKeyword(String keyWord) {
+	@RequestMapping(path = "GetFilmByKeyword.do", params = "keyword", method = RequestMethod.GET)
+	public ModelAndView getFilmByKeyword(String keyword) {
 		ModelAndView mv = new ModelAndView();
-		List<Film> films = filmDao.findFilmByKeyword(keyWord);
+		List<Film> films = filmDao.findFilmByKeyword(keyword);
 		if (films.isEmpty()) {
-			mv.addObject("message", "No film found matchimg the keyword: " + keyWord);
+			mv.addObject("message", "No film found matchimg the keyword: " + keyword);
 			mv.setViewName("WEB-INF/error.jsp");
 		} else {
 			mv.addObject("films", films);
 
 			// *********Need to create filmLists.jsp to display the result
-			mv.setViewName("WEB-INF/filmList.jsp");
+			mv.setViewName("WEB-INF/searchresults.jsp");
 		}
 
 		return mv;
