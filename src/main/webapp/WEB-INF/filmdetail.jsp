@@ -14,13 +14,13 @@
 				<li><strong>Title: </strong> ${film.title}</li>
 				<li><strong>Film ID: </strong> ${film.id}</li>
 				<li><strong>Description: </strong> ${film.description}</li>
-				<li><strong>Release Year: </strong> ${film.realeaseYear}</li>
+				<li><strong>Release Year: </strong> ${film.releaseYear}</li>
 				<li><strong>Language ID: </strong> ${film.languageId}</li>
-				<li><strong>Language: </strong> ${film.Language}</li>
+				<li><strong>Language: </strong> ${film.language}</li>
 				<li><strong>Rental Duration: </strong> ${film.rentalDuration}</li>
 				<li><strong>Rental Rate: </strong> ${film.rentalRate}</li>
 				<li><strong>Length: </strong> ${film.length}</li>
-				<li><strong>Replacement Cost: </strong> ${film.}</li>
+				<li><strong>Replacement Cost: </strong> ${film.replacementCost}</li>
 				<li><strong>Rating: </strong> ${film.rating}</li>
 				<li><strong>Special Features: </strong> ${film.specialFeatures}</li>
 				<li><strong>Actors: </strong> ${film.actors}</li>

@@ -25,7 +25,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "GetFilmById.do", params = "filmId", method = RequestMethod.GET)
-	public ModelAndView getFilmById(int filmId) {
+	public ModelAndView getFilmById(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(filmId);
 
@@ -39,7 +39,7 @@ public class FilmController {
 			mv.addObject("actors", actors);
 
 			// *********Need to create filmDetails.jsp to display the result
-			mv.setViewName("WEB-INF/filmDetail.jsp");
+			mv.setViewName("WEB-INF/filmdetail.jsp");
 		}
 		return mv;
 
@@ -53,7 +53,7 @@ public class FilmController {
 		try {
 			Film newFilm = filmDao.addNewFilm(film);
 			mv.addObject("film", newFilm);
-			mv.setViewName("WEB-INF/filmDetail.jsp");
+			mv.setViewName("WEB-INF/filmdetail.jsp");
 		} catch (Exception e) {
 			mv.addObject("message", "Failed to add the film");
 			mv.setViewName("WEB-INF/error.jsp");
@@ -127,7 +127,7 @@ public class FilmController {
 			try {
 				filmDao.addNewFilm(updatedFilm);
 				mv.addObject("film", updatedFilm);
-				mv.setViewName("WEB-INF/filmDetail.jsp");
+				mv.setViewName("WEB-INF/filmdetail.jsp");
 			} catch (Exception e) {
 				mv.addObject("message", "Failed to update the film.");
 				mv.setViewName("WEB-INF/error.jsp");
