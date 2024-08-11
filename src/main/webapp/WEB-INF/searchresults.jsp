@@ -43,7 +43,7 @@
        				<td><strong>Rating:</strong> ${film.rating}</td>
        				<td><strong>Special Features:</strong> ${film.specialFeatures}</td>
        				<td><strong>Actors:</strong> ${film.actors}</td>
-       	</tr>
+       			</tr>
             </c:forEach>
         </tbody>
         </table>

@@ -56,7 +56,7 @@
 			</form>
 			<br>
 			<br>
-			<form action="UpdateFilm.do" method="POST">
+			<form action="updateFilm.do" method="POST">
     			<input type="hidden" name="filmId" value="${film.id}" />
     				<button type="submit">Edit Film</button>
 			</form>
