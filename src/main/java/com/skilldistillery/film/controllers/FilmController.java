@@ -137,7 +137,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "GetFilmByKeyword.do", params = "keyword", method = RequestMethod.GET)
-	public ModelAndView getFilmByKeyword(String keyword) {
+	public ModelAndView getFilmByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = filmDao.findFilmByKeyword(keyword);
 		if (films.isEmpty()) {
