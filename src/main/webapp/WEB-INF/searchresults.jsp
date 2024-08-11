@@ -12,25 +12,27 @@
 
 <c:choose>
     <c:when test="${not empty films}">
-        <ul>
+        <table>
+        <tbody>
             <c:forEach var="film" items="${films}">
-                <li>
-                    <h2>${film.title}</h2>
-                    <p><strong>Film ID:</strong> ${film.id}</p>
-                    <p><strong>Description:</strong> ${film.description}</p>
-                    <p><strong>Release Year:</strong> ${film.releaseYear}</p>
-                    <p><strong>Language ID:</strong> ${film.languageId}</p>
-                    <p><strong>Language:</strong> ${film.language}</p>
-                    <p><strong>Rental Duration:</strong> ${film.rentalDuration}</p>
-                    <p><strong>Rental Rate:</strong> ${film.rentalRate}</p>
-                    <p><strong>Length:</strong> ${film.length}</p>
-                    <p><strong>Replacement Cost:</strong> ${film.replacementCost}</p>
-                    <p><strong>Rating:</strong> ${film.rating}</p>
-                    <p><strong>Special Features:</strong> ${film.specialFeatures}</p>
-                    <p><strong>Actors:</strong> ${film.actors}</p>
-                </li>
+       			<tr>
+       				<td><strong>Film ID:</strong> ${film.id}</td>
+       				<td><strong>Description:</strong> ${film.description}</td>
+       				<td><strong>Release Year:</strong> ${film.releaseYear}</td>
+       				<td><strong>Language ID:</strong> ${film.languageId}</td>
+       				<td><strong>Language:</strong> ${film.language}</td>
+       				<td><strong>Rental Duration:</strong> ${film.rentalDuration}</td>
+       				<td><strong>Rental Rate:</strong> ${film.rentalRate}</td>
+       				<td><strong>Length:</strong> ${film.length}</td>
+       				<td><strong>Replacement Cost:</strong> ${film.replacementCost}</td>
+       				<td><strong>Rating:</strong> ${film.rating}</td>
+       				<td><strong>Special Features:</strong> ${film.specialFeatures}</td>
+       				<td><strong>Actors:</strong> ${film.actors}</td>
+       	</tr>
             </c:forEach>
-        </ul>
+        </tbody>
+        </table>
+                
     </c:when>
     <c:otherwise>
         <p>No films found matching your criteria.</p>
